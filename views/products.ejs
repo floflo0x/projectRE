@@ -1,0 +1,66 @@
+<%- include("./includes/head.ejs"); %>
+
+	<div class="container p-5">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-1 col-lg-2"></div>
+
+			<div class="col-12 col-xl-10 col-lg-8 border-0">
+				<h3 class="text-center text-uppercase">Plans and Pricing</h3>
+
+				<div class="mt-5">
+					<div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-4">
+						<% plans.forEach(i => { %>
+							<a href="/subscribe?plan=<%= i.name %>" style="text-decoration: none;">
+							<div class="col">
+							    <div class="card h-100 p-2">
+								    <div class="card-body bg-primary" style="border-radius: 6px;">
+								        <h5 class="card-title text-white"><%= i.name %></h5>
+								        <p class="card-text text-white" style="font-weight: 600;">$<%= Number(i.amount) / 100 %></p>
+								    </div>
+							      	<ul class="list-group list-group-flush mt-3">
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">Monthly Price(USD)</small> <br />
+									    	<b>
+									    		<sup class="border-0 p-0" style="font-size: 10px;">
+									    			$
+									    		</sup>
+									    		<span class="p-0"><%= Number(i.amount) / 100 %></span>
+									    	</b>
+									    </li>
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">Resolution</small> <br />
+									    	<b>720p HD</b>
+									    </li>
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">Watch on Your Laptop, TV, Phone</small> <br />
+									    	✔
+									    </li>
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">Easy Change or Cancel</small> <br />
+									    	✔
+									    </li>
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">Downloads</small> <br />
+									    	✔
+									    </li>
+									    <li class="list-group-item">
+									    	<small class="text-body-secondary">ADS</small> <br />
+									    	<span style="color: red; font-weight: bold;">X</span>
+									    </li>
+									</ul>
+								    <div class="card-footer">
+								        <small class="text-body-secondary"><%= i.description %></small>
+								    </div>
+							    </div>
+							</div>
+							</a>
+						<% }) %>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-xl-1 col-lg-2"></div>
+		</div>
+	</div>
+
+<%- include("./includes/end.ejs"); %>
